@@ -8,8 +8,6 @@ const cookieOptions = {
 const corsOptions = {
   origin: [
     "http://localhost:5173",
-    "http://localhost:5174",
-    "https://file-management-system-seven.vercel.app",
     process.env.CLIENT_URL,
   ],
   credentials: true,
