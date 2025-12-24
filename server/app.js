@@ -47,6 +47,8 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
+app.set("trust proxy", 1);
+
 // --------------------
 // Global middlewares
 // --------------------
