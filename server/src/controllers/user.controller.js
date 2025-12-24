@@ -180,13 +180,21 @@ const getMyProfile = catchAsync(async (req, res, next) => {
 
 const logout = catchAsync(async (req, res, next) => {
   redisCache.del("/api/v1/auth/me", (err) => {
-    if (err) throw err;
+    if (err) console.error(err);
   });
-  res.status(204).clearCookie(USER_TOKEN).json({
-    status: "success",
-    message: "User Logged out successfully",
+
+  res.clearCookie(USER_TOKEN, {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
+    sameSite: "none",
+  });
+
+  res.status(200).json({
+    success: true,
+    message: "User logged out successfully",
   });
 });
+
 const deleteUnverifiedUsers = async () => {
   redisCache.del("/api/v1/auth/me", (err) => {
     if (err) throw err;
