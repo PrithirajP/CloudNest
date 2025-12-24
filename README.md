@@ -1,7 +1,5 @@
 # CloudNest
 
-> A full-stack file management / cloud storage web app — React + Vite frontend, Node/Express backend, MongoDB for storage, Cloudinary for file hosting, Redis + BullMQ for background email jobs, and WebAuthn support.
-
 ---
 
 ## Table of Contents
