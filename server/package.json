@@ -5,8 +5,11 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "start": "SET NODE_ENV=PRODUCTION & node server.js",
-    "dev": "SET NODE_ENV=DEVELOPMENT & nodemon server.js"
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   },
   "keywords": [
     "File",
