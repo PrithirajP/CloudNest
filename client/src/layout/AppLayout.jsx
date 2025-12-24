@@ -3,7 +3,7 @@ import React, { Suspense, useLayoutEffect, useState } from "react";
 import ToolTip from "../components/ToolTip";
 import { Link, NavLink, Outlet, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { useLazyLogoutQuery } from "../redux/apis/authApi";
+import { useLogoutMutation } from "../redux/apis/authApi";
 import { setUnAuthenticated } from "../redux/slice/auth";
 import { toast } from "react-toastify";
 import Spinner from "../components/Spinner";
@@ -35,7 +35,7 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const [trigger] = useLazyLogoutQuery();
+  const [trigger] = useLogoutMutation();
 
   const logoutHandler = async () => {
     try {
