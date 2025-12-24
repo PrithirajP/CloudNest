@@ -187,6 +187,7 @@ const logout = catchAsync(async (req, res, next) => {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
     sameSite: "none",
+    path: "/",
   });
 
   res.status(200).json({
