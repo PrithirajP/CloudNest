@@ -5,53 +5,62 @@ import queryStringGenerator from "../../utils/queryStringGenerator";
 const fileApi = apis.injectEndpoints({
   endpoints: (builder) => ({
     getFiles: builder.query({
-      query: (filters) => queryStringGenerator("files", filters),
+      query: (filters) =>
+        queryStringGenerator("/api/v1/files", filters),
       onQueryStarted,
       providesTags: ["Files"],
     }),
+
     getSingleFile: builder.query({
-      query: (id) => `files/${id}`,
+      query: (id) => `/api/v1/files/${id}`,
       onQueryStarted,
-      // providesTags: ["Files"],
     }),
+
     uploadFiles: builder.mutation({
       query: (data) => ({
-        url: "files",
+        url: "/api/v1/files",
         method: "POST",
         body: data,
       }),
       onQueryStarted,
       invalidatesTags: ["Files"],
     }),
+
     updateFile: builder.mutation({
       query: ({ data, ids }) => ({
-        url: `files/${ids.join(",")}`,
+        url: `/api/v1/files/${ids.join(",")}`,
         method: "PUT",
         body: data,
       }),
       onQueryStarted,
       invalidatesTags: ["Files"],
     }),
+
     deleteFile: builder.mutation({
       query: ({ ids }) => ({
-        url: `files/${ids.join(",")}`,
+        url: `/api/v1/files/${ids.join(",")}`,
         method: "DELETE",
       }),
       onQueryStarted,
       invalidatesTags: ["Files"],
     }),
+
     uploadStreamVideo: builder.mutation({
       query: (data) => ({
-        url: `files/upload-stream-video`,
+        url: "/api/v1/files/upload-stream-video",
         method: "POST",
         body: data,
       }),
       onQueryStarted,
       invalidatesTags: ["StreamVideo"],
     }),
+
     getStreamVideo: builder.query({
       query: (filename) =>
-        queryStringGenerator("files/get-stream-video", filename),
+        queryStringGenerator(
+          "/api/v1/files/get-stream-video",
+          filename
+        ),
       providesTags: ["StreamVideo"],
       onQueryStarted,
     }),
