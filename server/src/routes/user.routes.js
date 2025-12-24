@@ -23,7 +23,7 @@ userRouter
   .route("/signup")
   .post(singleFile, registerValidator(), validateHandler, signUp);
 userRouter.route("/login").post(loginValidator(), validateHandler, login);
-userRouter.route("/logout").get(logout);
+userRouter.route("/logout").post(logout);
 
 userRouter.get("/verify-email", verifyEmail);
 
