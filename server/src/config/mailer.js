@@ -1,25 +1,31 @@
-import catchAsync from "express-async-handler";
 import nodemailer from "nodemailer";
 
 const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST,
-  port: process.env.SMTP_PORT,
-  secure: false, // Use `true` for port 465, `false` for all other ports
+  port: Number(process.env.SMTP_PORT),
+  secure: Number(process.env.SMTP_PORT) === 465,
   auth: {
     user: process.env.SMTP_USER,
     pass: process.env.SMTP_PASS,
   },
 });
 
-const sendEmail = catchAsync(async (toMail, subject, body) => {
-  const info = await transporter.sendMail({
-    from: process.env.FROM_EMAIL, // sender address
-    to: toMail, // list of receivers
-    subject: subject, // Subject line
-    html: body, // html body
-  });
+// OPTIONAL but STRONGLY recommended
+await transporter.verify();
 
-  console.log("Message sent: %s", info.messageId);
-});
+const sendEmail = async (toMail, subject, body) => {
+  try {
+    const info = await transporter.sendMail({
+      from: process.env.FROM_EMAIL,
+      to: toMail,
+      subject,
+      html: body,
+    });
+    console.log("Email sent:", info.messageId);
+  } catch (err) {
+    console.error("Email failed:", err);
+    throw err;
+  }
+};
 
 export default sendEmail;
