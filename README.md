@@ -189,9 +189,3 @@ WebAuthn-related code exists from earlier experimentation, but it is **not enabl
 It is intentionally excluded from the main feature set to avoid confusion or overclaiming.
 
 ---
-
-*README finalized and cleaned.*
-
-```
-
----
