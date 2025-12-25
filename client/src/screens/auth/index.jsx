@@ -81,13 +81,8 @@ const Signup = ({ setSwitchPages }) => {
 
     try {
       await signUpUser(data).unwrap();
-      toast.info(
-        "A verification email has been sent to your email address. Please check your inbox to complete the registration process.",
-        {
-          theme: "dark",
-          position: "bottom-center",
-          className: "toast-message",
-        }
+      toast.success(
+        "SignUp Successfull",
       );
       setSwitchPages("login");
     } catch (error) {
