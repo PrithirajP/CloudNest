@@ -5,14 +5,6 @@ A lightweight cloud file management system built with React and Node.js, featuri
 
 ---
 
-## Quick links
-
-- **Project root:** `CloudNest-main/`
-- **Server:** `CloudNest-main/server`
-- **Client:** `CloudNest-main/client`
-
----
-
 ## Table of Contents
 
 - [Project Overview](#project-overview)
