@@ -5,7 +5,6 @@ import {
   logout,
   signUp,
   twoFactorAuth,
-  verifyEmail,
   verifyTwoFactorAuth,
 } from "../controllers/user.controller.js";
 import {
@@ -22,10 +21,11 @@ export const userRouter = Router();
 userRouter
   .route("/signup")
   .post(singleFile, registerValidator(), validateHandler, signUp);
+
 userRouter.route("/login").post(loginValidator(), validateHandler, login);
 userRouter.route("/logout").post(logout);
 
-userRouter.get("/verify-email", verifyEmail);
+// NOTE: verify-email route removed because email verification is disabled/removed
 
 // Protected Routes:
 userRouter.use(isAuthenticated);
