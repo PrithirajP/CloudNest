@@ -25,11 +25,11 @@ const isAuthenticated = async (req, res, next) => {
       );
     }
 
-    if (!currentUser.isVerified) {
-      return next(
-        new ApiError("Please verify your email address to get access!", 401)
-      );
-    }
+    // if (!currentUser.isVerified) {
+    //   return next(
+    //     new ApiError("Please verify your email address to get access!", 401)
+    //   );
+    // }
 
     req.user = currentUser;
     next();
