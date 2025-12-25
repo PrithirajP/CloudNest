@@ -84,7 +84,7 @@ const Stats = ({ userData, trigger, data }) => {
           {userData?.createdAt.slice(0, 10)}
         </div>
       </div>
-      <div className="stat">
+      {/* <div className="stat">
         <button
           className="btn text-sky-500 mb-1"
           onClick={twoFactorAuthHandler}
@@ -92,7 +92,7 @@ const Stats = ({ userData, trigger, data }) => {
           <ShieldCheck />
           Two Factor Authentication
         </button>
-      </div>
+      </div> */}
     </div>
   );
 };
