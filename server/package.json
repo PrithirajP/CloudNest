@@ -19,6 +19,7 @@
   "author": "Abdul Rehman",
   "license": "MIT",
   "dependencies": {
+    "@sendgrid/mail": "^8.1.6",
     "@simplewebauthn/server": "^10.0.0",
     "bcryptjs": "^2.4.3",
     "bullmq": "^5.7.7",
