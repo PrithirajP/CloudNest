@@ -104,8 +104,8 @@ CLOUDINARY_CLOUD_NAME=...
 CLOUDINARY_API_KEY=...
 CLOUDINARY_API_SECRET=...
 
-REDIS_PORT=6379
-REDIS_HOST=127.0.0.1
+REDIS_PORT=your redis port
+REDIS_HOST=your redis host
 ````
 
 > SMTP and email-related variables are optional and not required when email verification is disabled.
